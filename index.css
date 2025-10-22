@@ -1,0 +1,954 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+.context {
+  padding: 20px;
+  border: 2px solid black;
+
+}
+.menu {
+  color:#ced4da;
+  font-style: bold;
+  font-size:larger;
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: rgb(13, 211, 218);
+}
+
+
+
+
+/* Custom Properties (Variables) for consistent theming */
+:root {
+    --primary-color: #007bff; /* Blue for accents */
+    --secondary-color: #28a745; /* Green for success/highlights */
+    --text-color: #070808;
+    --background-light: #2ef3e3; /* Light gray background for sections */
+    --card-bg: #1fe0e0;
+    --max-width: 1200px;
+}
+
+/* Global Container and Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-light);
+}
+
+.homepage {
+    padding: 4rem 1.5rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+/*
+ * ========================================
+ * 1. Hero / Intro Section (#front)
+ * ========================================
+ */
+#front {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    padding-bottom: 4rem;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 4rem;
+    background-color: var(--card-bg);
+    border-radius: 0.75rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 3rem 1.5rem;
+}
+
+#front, h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+#front img {
+    max-width: 100%;
+    width: clamp(250px, 60vw, 400px);
+    height: auto;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+#front p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    max-width: 800px;
+    font-style: italic;
+    padding: 1rem;
+    border-left: 5px solid var(--primary-color);
+    text-align: center;
+}
+
+/*
+ * ========================================
+ * 2. Feature Grid Sections (The four 'front' divs)
+ * ========================================
+ */
+.feature-grid {
+    /* Wrapping container for the four sections */
+    display: grid;
+    grid-template-columns: 1fr; /* Default to 1 column on mobile */
+    gap: 2rem;
+    padding-top: 2rem;
+}
+
+/* Selector for all individual feature cards */
+#front\ 1, #front\ 2, #front\ 3, #front\ 4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    height: 100%; /* Ensures cards fill the grid height */
+}
+
+#front\ 1:hover, #front\ 2:hover, #front\ 3:hover, #front\ 4:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feature-grid h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.feature-grid img {
+    max-width: 100%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 3px solid var(--background-light);
+    border-radius: 50%;
+}
+
+.feature-grid p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin-top: auto;
+    text-align: left;
+    padding-top: 1rem;
+    border-top: 1px dashed #dddddd;
+}
+
+/* Grid layout adjustments */
+@media (min-width: 600px) {
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1000px) {
+    .feature-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/*
+ * ========================================
+ * Specific Adjustments for WHY CHOOSE US (#front 4)
+ * ========================================
+ */
+#front\ 4 img {
+    /* Using a regular border for non-circular images */
+    border-radius: 0.75rem;
+    object-fit: contain;
+}
+
+#front\ 4 p {
+    /* Styling the list-like content */
+    white-space: pre-wrap;
+    font-style: normal;
+    text-align: left;
+    font-size: 0.95rem;
+    color: #555;
+    /* Adding visual separation to the list items */
+    padding-left: 0.5rem;
+}
+
+
+:root {
+  --color-primary: #007bff; /* Blue */
+  --color-primary-dark: #0056b3;
+  --color-secondary: #6c757d; /* Gray */
+  --color-secondary-dark: #5a6268;
+  --color-success: #28a745;
+  --color-error: #dc3545;
+  --color-text: #343a40;
+  --color-bg-light: #f8f9fa;
+  --color-card-bg: #ffffff;
+  --color-border: #ced4da;
+  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --spacing-unit: 1rem;
+  --border-radius-base: 0.25rem;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-base);
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg-light);
+  min-height: 100vh;
+}
+
+/* Visually hide content for accessibility but keep it readable by screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/*
+ * 2. Layout
+ * --------------------------------
+ */
+.wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--spacing-unit) 1.5rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+header p {
+  font-size: 1.15rem;
+  color: var(--color-secondary-dark);
+}
+
+.card {
+  background-color: var(--color-card-bg);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+/* Grid for the top form fields */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Mobile-first: 1 column on small screens, 2 columns on medium screens */
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/*
+ * 3. Form Elements (Inputs, Select, Textarea)
+ * --------------------------------------------
+ */
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+input:not([type="radio"]):not([type="checkbox"]),
+select,
+textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-base);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+input:not([type="radio"]):not([type="checkbox"]):focus,
+select:focus,
+textarea:focus {
+  border-color: var(--color-primary);
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Hint text below inputs */
+.hint {
+  font-size: 0.85rem;
+  color: var(--color-secondary);
+  margin-top: 0.25rem;
+}
+
+/*
+ * 4. Fieldset (Radio and Checkbox Groups)
+ * -----------------------------------------
+ */
+fieldset {
+  border: none;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+}
+
+fieldset > label {
+  /* This targets the visible 'Project type' and 'Extras' labels */
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem; /* Space between choices */
+}
+
+.choices label {
+  /* Style for the radio/checkbox text labels */
+  font-weight: normal;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 0; /* Override default label margin */
+}
+
+.choices input[type="radio"],
+.choices input[type="checkbox"] {
+  /* Style for the actual radio/checkbox input */
+  margin-right: 0.5rem;
+  appearance: none; /* Hide default styling */
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid var(--color-border);
+  border-radius: var(--border-radius-base);
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+  transition: all 0.15s ease-in-out;
+}
+
+.choices input[type="radio"] {
+  border-radius: 50%; /* Make radios circular */
+}
+
+.choices input[type="radio"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.15s ease-in-out;
+  background-color: var(--color-primary);
+}
+
+.choices input[type="checkbox"]::before {
+  content: "✔"; /* Checkmark */
+  font-size: 0.75rem;
+  color: var(--color-card-bg);
+  transform: scale(0);
+  transition: transform 0.15s ease-in-out;
+  font-weight: bold;
+}
+
+.choices input:checked {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+}
+
+.choices input:checked::before {
+  transform: scale(1);
+}
+
+/*
+ * 5. Buttons and Actions
+ * ----------------------
+ */
+.actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid transparent;
+  border-radius: var(--border-radius-base);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Primary Submit Button */
+button[type="submit"] {
+  background-color: var(--color-primary);
+  color: var(--color-card-bg);
+}
+
+button[type="submit"]:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* Secondary Reset Button */
+button.secondary {
+  background-color: transparent;
+  color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
+button.secondary:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-card-bg);
+}
+
+/* Terms and Privacy hint */
+.actions .hint {
+  margin-top: 0;
+  flex-grow: 1;
+}
+
+.actions a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.actions a:hover {
+  text-decoration: underline;
+}
+
+.footer-note {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-secondary-dark);
+}
+
+/* Custom Properties for easy theming */
+:root {
+  --primary-color: #007bff; /* Blue */
+  --secondary-color: #f8f9fa; /* Light Gray for background */
+  --dark-color: #343a40; /* Dark text */
+  --light-color: #ffffff;
+  --success-color: #28a745;
+  --accent-color: #ffc107; /* Yellow/Gold for highlights */
+  --card-bg: #ffffff;
+  --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+  --border-radius: 0.5rem;
+}
+
+
+
+
+
+
+    /* Custom Properties (Variables) for easy theming */
+:root {
+    --primary-color: #3f51b5; /* Indigo/Blue for main accents */
+    --secondary-color: #ff9800; /* Orange/Amber for dual-color contrast */
+    --text-color: #333;
+    --background-light: #f4f7f6;
+    --background-dark: #2c3e50; /* Dark blue/gray for footer */
+    --light-text: #ecf0f1; /* Light gray for footer text */
+    --padding-section: 4rem 1.5rem;
+    --max-width: 1200px;
+}
+
+/* Global Reset and Utility Classes */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-light);
+}
+
+.tainer, .about, .footer-container, .footer-bottom {
+    /* Centralize all main content blocks */
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*
+ * ========================================
+ * 1. Dual-Color Heading Section (.tainer)
+ * ========================================
+ */
+.tainer {
+    text-align: center;
+    padding: var(--padding-section);
+}
+
+.tainer p {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.dual-color-heading {
+    font-size: clamp(2.5rem, 5vw, 3.5rem); /* Responsive font size */
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+
+    /* The core styling for the split gradient clipped to the text */
+    background: linear-gradient(
+        to right,
+        var(--primary-color) 0%,      /* First color starts at 0% */
+        var(--primary-color) 50%,     /* First color ends at 50% */
+        var(--secondary-color) 50%,   /* Second color starts at 50% */
+        var(--secondary-color) 100%   /* Second color ends at 100% */
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* Fallback for older browsers */
+}
+
+/*
+ * ========================================
+ * 2. About Section (.about)
+ * ========================================
+ */
+.about {
+    padding: var(--padding-section);
+    background-color: var(--light-text); /* Lighter background for contrast */
+}
+
+.about-text {
+    max-width: 800px; /* Constrain text width */
+    margin: 0 auto;
+}
+
+.about-text h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+}
+
+/*
+ * ========================================
+ * 3. Footer Section (.footer-container & .footer-bottom)
+ * ========================================
+ */
+.footer-container {
+    background-color: var(--background-dark);
+    padding: 3rem 1.5rem;
+    display: flex;
+    flex-direction: column; /* Stack columns on small screens */
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .footer-container {
+        flex-direction: row; /* Three columns on desktop */
+        justify-content: space-between;
+    }
+}
+
+.footer-column {
+    flex: 1; /* Allows columns to take equal space */
+    min-width: 200px;
+    color: var(--light-text);
+}
+
+.footer-column h4 {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.footer-column p {
+    font-size: 0.95rem;
+}
+
+/* Footer Links (ULs) */
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-column a {
+    text-decoration: none;
+    color: var(--light-text);
+    transition: color 0.2s;
+    font-size: 0.95rem;
+}
+
+.footer-column a:hover {
+    color: var(--primary-color);
+}
+
+/* Footer Bottom (Copyright) */
+.footer-bottom {
+    text-align: center;
+    padding: 1rem 1.5rem;
+    background-color: #1a242d; /* Slightly darker than footer-container */
+    color: var(--light-text);
+    font-size: 0.85rem;
+}
+
+
+
+
+
+
+
+/* Global Reset and Utility Classes */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-text);
+    background-color: var(--background-light);
+}
+
+h1, h2, h3 {
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+
+/* Base containers to center content */
+.about-hero, .about-company, .mission-vision, .testimonials, .footer {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+/*
+ * ========================================
+ * 1. HERO / INTRO (.about-hero)
+ * ========================================
+ */
+.about-hero {
+    background-color: var(--background-gray);
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+.about-hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.about-hero p {
+    /* Home | About Us breadcrumb */
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+/*
+ * ========================================
+ * 2. ABOUT COMPANY (.about-company)
+ * ========================================
+ */
+.about-company {
+    padding: var(--section-padding);
+}
+
+.about-company h2 {
+    font-size: 2rem;
+    color: var(--dark-text);
+    margin-bottom: 1.5rem;
+    border-left: 5px solid var(--primary-color);
+    padding-left: 1rem;
+}
+
+.about-company p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Values List */
+.about-company .values {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.about-company .values li {
+    font-weight: 600;
+    padding: 0.75rem 1rem;
+    background-color: var(--background-gray);
+    border-radius: 0.5rem;
+    /* Optional: Small icon/marker */
+    position: relative;
+    padding-left: 2.5rem;
+}
+
+.about-company .values li::before {
+    content: '⭐'; /* Or a custom SVG/icon */
+    position: absolute;
+    left: 1rem;
+    color: var(--secondary-color);
+}
+
+/*
+ * ========================================
+ * 3. MISSION / VISION (.mission-vision)
+ * ========================================
+ */
+.mission-vision {
+    background-color: var(--background-light);
+    padding: var(--section-padding);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .mission-vision {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.mission-vision .card {
+    padding: 1.5rem;
+    border-left: 5px solid var(--primary-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    background-color: #ffffff;
+    transition: transform 0.3s ease;
+}
+
+.mission-vision .card:hover {
+    transform: translateY(-5px);
+}
+
+.mission-vision h3 {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.mission-vision p {
+    font-size: 1rem;
+}
+
+/*
+ * ========================================
+ * 4. TESTIMONIALS (.testimonials)
+ * ========================================
+ */
+.testimonials {
+    background-color: var(--background-gray);
+    padding: var(--section-padding);
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    color: var(--dark-text);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 900px) {
+    .testimonials-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.testimonial {
+    background-color: var(--background-light);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    min-height: 250px; /* Ensure visual height consistency */
+}
+
+.testimonial p {
+    font-style: italic;
+    color: var(--dark-text);
+    margin-bottom: 1rem;
+}
+
+.testimonial h4 {
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.2rem;
+}
+
+.testimonial span {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+/*
+ * ========================================
+ * 5. FOOTER (.footer)
+ * ========================================
+ */
+.footer {
+    background-color: var(--footer-dark);
+    color: var(--light-text);
+    padding: 0;
+}
+
+.footer-top {
+    /* CTA section: Have a project in mind? */
+    background-color: #3f51b5; /* Slightly different dark accent */
+    padding: 2rem 1.5rem;
+    text-align: center;
+}
+
+.footer-top h3 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.footer-top p {
+    font-size: 1.1rem;
+    color: #c9e6ff;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 3rem 1.5rem;
+}
+
+.footer-links h4 {
+    color: var(--secondary-color);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li, .footer-links p {
+    color: #adb5bd;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.footer-links li:hover {
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+/* Social Icons Styling (Assuming Fa... are SVGs or similar) */
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    font-size: 1.5rem;
+}
+
+.social-icons * {
+    color: #adb5bd;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.social-icons *:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 1rem 1.5rem;
+    background-color: var(--footer-bottom-dark);
+    border-top: 1px solid #495057;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #adb5bd;
+}
